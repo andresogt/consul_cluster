@@ -2,12 +2,12 @@
 
 # tasks file for webserver
 
-#- name: Update and upgrade apt
-#  become: true
-#  apt:
-#    update_cache: yes
-#    cache_valid_time: 3600
-#    upgrade: yes
+- name: Update and upgrade apt
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600
+    upgrade: yes
 
 - name: Install dependence unziṕ
   ansible.builtin.apt:
