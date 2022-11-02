@@ -1,7 +1,4 @@
 ---
-
-# tasks file for webserver
-
 - name: Update and upgrade apt
   become: true
   ansible.builtin.apt:
@@ -36,7 +33,6 @@
 
 - name: unzip file
   ansible.builtin.unarchive:
-   # cmd: unzip consul_1.8.4_linux_amd64.zip
     src: consul_1.8.4_linux_amd64.zip
     dest: /usr/local/bin/
     remote_src: yes
