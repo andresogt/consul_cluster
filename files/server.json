@@ -1,7 +1,0 @@
-{
- "node_name": "agent-one",
- "data_dir": "/tmp/consul",
- "server": true,
- "bind_addr": "172.33.0.10",
- "enable_syslog": false
-}
