@@ -1,0 +1,7 @@
+---
+- name: Setting up consul
+  become: true
+  ansible.builtin.shell:
+    cmd: "{{ cmd }}"
+  async: 2000
+  poll: 0 

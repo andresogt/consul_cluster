@@ -1,0 +1,2 @@
+cmd: consul agent -server -bootstrap-expect=1 -node=agent-one -bind=172.33.0.10 -data-dir=/tmp/consul  -config-dir=/etc/consul.d 
+

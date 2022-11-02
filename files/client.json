@@ -1,0 +1,8 @@
+{
+ "node_name": "agent-two",
+ "data_dir": "/tmp/consul",
+ "server": false,
+ "server_addresses": "172.33.0.10",
+ "bind_addr": "172.33.0.20",
+ "enable_syslog": false
+}

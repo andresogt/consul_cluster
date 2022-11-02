@@ -1,0 +1,18 @@
+---
+
+# tasks file for webserver
+
+#- name: Update and upgrade apt
+#  become: true
+#  apt:
+#    update_cache: yes
+#    cache_valid_time: 3600
+#    upgrade: yes
+
+- name: Setting up consul
+  hosts: consul_server
+  become: true
+  ansible.builtin.shell:
+    cmd: consul agent -server -bootstrap-expect=1 -node=agent-one -bind=172.33.0.10 -data-dir=/tmp/consul  -config-dir=/etc/consul.d
+
+-

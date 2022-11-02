@@ -1,0 +1,26 @@
+---
+- name: Install Consul
+  hosts: all
+  remote_user: ubuntu
+  become: true
+  roles:
+    - role:  install_consul
+      tags: installing_consul
+
+- name: Setting up consul
+  hosts: consul_server
+  remote_user: ubuntu
+  become: true
+  roles:
+    - role: setting_up_consul
+      vars:
+        cmd: consul agent -server -bootstrap-expect=1 -node=agent-one -bind=172.33.0.10  -data-dir=/tmp/consul
+
+- name: Setting up consul client
+  hosts: consul_client
+  remote_user: ubuntu
+  become: true
+  roles:
+    - role: setting_up_consul
+      vars:
+        cmd: consul agent -node=agent-two -bind=172.33.0.20 -join 172.33.0.10 -data-dir=/tmp/consul

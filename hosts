@@ -1,0 +1,5 @@
+[consul_server]
+172.33.0.10
+
+[consul_client]
+172.33.0.20

@@ -1,0 +1,49 @@
+---
+
+# tasks file for webserver
+
+#- name: Update and upgrade apt
+#  become: true
+#  apt:
+#    update_cache: yes
+#    cache_valid_time: 3600
+#    upgrade: yes
+
+- name: Install dependence unziṕ
+  ansible.builtin.apt:
+    name: unzip
+    state: present
+
+- name: Install dependence curl
+  ansible.builtin.apt:
+    name: curl
+    state: present
+
+- name: Install dependence jq
+  ansible.builtin.apt:
+    name: jq
+    state: present
+
+- name: Install dependence dnsutils
+  ansible.builtin.apt:
+    name: dnsutils
+    state: present
+
+- name: download zip consul
+  ansible.builtin.get_url:
+    url: https://releases.hashicorp.com/consul/1.8.4/consul_1.8.4_linux_amd64.zip
+    dest: /home/ubuntu
+
+- name: unzip file
+  ansible.builtin.unarchive:
+   # cmd: unzip consul_1.8.4_linux_amd64.zip
+    src: consul_1.8.4_linux_amd64.zip
+    dest: /usr/local/bin/
+    remote_src: yes
+
+- name: mkdir consul.d
+  ansible.builtin.file:
+    path: /etc/consul.d
+    state: directory
+    mode: '0777'
+
